@@ -1,6 +1,11 @@
-#include <objc/Object.h>
 #include <stdio.h>
+#ifdef APPLE
+#include <Foundation/Foundation.h>
+@interface cato : NSObject {
+#else
+#include <objc/Object.h>
 @interface cato : Object {
+#endif
 	const char *str;
 }
 - (void)set:(const char*)val; 
@@ -25,9 +30,14 @@ int main(int ac,char **av)
 	puts("alloced!");
 	[c init];
 	puts("inited!");
-	[c set:"Hello, Objective-C!"];
+	[c set:"Hello, world!"];
 	puts([c get]);
+#ifdef APPLE
+	[c release];
+	puts("released!");
+#else
 	[c free];
 	puts("freed!");
+#endif
 	return 0;
 }
