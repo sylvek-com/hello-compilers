@@ -10,7 +10,7 @@
 
 Currently used to show breakage in Java SDK:
 
-'''
+```
 $ javac h.java
 $ java h
 Hello, world!
@@ -21,8 +21,8 @@ $ chmod +x h.jar
 $ ./h.jar
 invalid file (bad magic number): Exec format error
 $ java -version
-'''
+```
 
-Works: java version "1.6.0_35"
+Works: `java version "1.6.0_35"`
 
-Broken: java version "1.8.0_161"
+Broken: `java version "1.8.0_171"`
